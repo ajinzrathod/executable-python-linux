@@ -264,6 +264,7 @@ ls
 ## Final Tree
 
 If you are confused how your tree might look, here is a glance.
+
 ![Tree](https://github.com/ajinzrathod/executable-python-linux/blob/main/tree.png?raw=true)
 
 ## Install the .deb file
