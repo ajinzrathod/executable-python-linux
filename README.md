@@ -264,22 +264,7 @@ ls
 ## Final Tree
 
 If you are confused how your tree might look, here is a glance.
-.
-├── exe.linux-x86_64-3.8
-│   ├── DEBIAN
-│   │   ├── control
-│   │   └── preinst
-│   └── usr
-│       ├── bin
-│       │   ├── lib (tree to lib files is excluded)
-│       │   └── main
-│       └── share
-│           ├── applications
-│           │   └── ghanshyam.desktop
-│           └── icons
-│               └── icon.png
-├── exe.linux-x86_64-3.8.deb
-
+![Tree](https://github.com/ajinzrathod/executable-python-linux/blob/main/tree.png?raw=true)
 
 ## Install the .deb file
 ```bash
