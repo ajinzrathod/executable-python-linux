@@ -112,3 +112,177 @@ Open that folder and you will find **main**
 Now, you can share this build folder with anyone and they can use this script when they will execute **main**
 
 To execute main open terminal and type `./main`
+
+## Create an Executable Debian Installer
+
+You can turn off *Virtual Environment* if you wish.
+
+Now to build a folder and you will have a file that will look something like this.
+
+>exe.linux-x86_64-3.8
+
+**NOTE: We will be using this name(exe.linux-x86_64-3.8) throughout this page. It might differ in your computer.**
+
+### Go to exe.linux-x86_64-3.8
+
+```bash
+cd exe.linux-x86_64-3.8
+```
+
+### Create a directory and named **usr** and *move* all files to **usr* folder.
+
+```bash
+mkdir usr
+mv * usr/
+```
+
+### Create a directory and named **DEBIAN**(all in capital) and go inside it.
+```bash
+mkdir DEBIAN
+cd DEBIAN/
+```
+
+## Create Control File
+**Create a new file named `control`**
+```bash
+vi control
+```
+
+Paste the following code
+```control
+Package: Ghanshyam
+Version: 1.0.0
+Architecture: all
+Essential: no
+Priority: optional
+Depends: less, parted, rsync
+Maintainer: Ghanshyam Maharaj
+Architecture: amd64
+Description: Harikrushna Maharaj, Jai Swaminarayan.
+```
+
+## Create preinst File
+
+> Preinst is a bash script that will run before installation. It is usually used to check if any configuration files need to be removed or not. And path to older icons are removed. If old icons are kept, new icons are sometimes not replaced. You can view in [this video](https://youtu.be/ep88vVfzDAo?t=1092) and skip to 18:12
+ 
+## Create a new file named `preinst`
+```bash
+vi preinst
+```
+
+### And paste the follwing code.
+```bash
+#!/bin/bash
+echo "Jai Swaminarayan, preinst script"
+```
+### Change rights to preinst script
+
+```bash
+chmod 755 preinst
+```
+
+## Go to `usr` directory
+```bash
+cd ../usr/
+```
+
+## Create `bin` folder and move all files inside it
+```bash
+mkdir bin/
+mv * bin/
+```
+
+
+## Create `share` folder and go inside it
+```
+mkdir share/
+cd share/
+```
+
+## Create *icons* directory and place the application icon
+```bash
+mkdir icons
+cd icons
+```
+(Paste the icon file in this directory)
+
+> PNG format is also supported. .ico file is Not mandatory.
+
+## Create a `.desktop` file inside `applications` directory
+```
+cd ..
+mkdir applications
+cd applications
+vi ghanshyam.desktop
+```
+
+Paste the following code
+```
+[Desktop Entry]
+Version=1.0
+Name=ghanshyam
+Comment=Comment in ghanshyam.desktop file
+Exec=/usr/bin/main
+Icon=/usr/share/icons/icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;
+
+```
+> Replace `Exec=/usr/bin/main` with your **main application file**
+
+> Replace `Icon=/usr/share/icons/icon.png` with your **icon directory path**
+
+> Turn `Terminal=true` if you want to display terminal while your application is running.
+
+**NOTE: *"exe.linux-x86_64-3.8"* will be considered as root directory while creating Debian installer. Thus \<\/\> is included before `usr` directory**
+
+
+### Change file permission
+> One last thing to add is that by setting executable rights to your .desktop file, it automatically takes the specified Icon and Name (specified in the corresponding fields), as it should be. Be careful though, the filename doesn't really change, it still remains 'launcher_name_here.desktop' and not 'Name_field_here', the system chooses to display it like 'Name_field_here' because it's nicer without the .desktop extension. 
+
+Source: [Ubuntu Docs](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles)
+
+```bash
+chmod +x ghanshyam.desktop
+```
+
+### Goto `build` directory and create .deb file
+```
+dpkg-deb --build exe.linux-x86_64-3.8/
+```
+
+> dpkg-deb: building package 'ghanshyam' in 'exe.linux-x86_64-3.8.deb'.
+
+### Now you can see that new `.deb` file is created
+
+```bash
+ls
+```
+> exe.linux-x86_64-3.8  exe.linux-x86_64-3.8.deb
+
+
+## Install the .deb file
+```bash
+sudo dpkg -i exe.linux-x86_64-3.8.deb
+```
+
+Now you can search for **ghanshyam** in launcher and your new application is also added to favourites.
+
+
+## Error in creating installer
+
+**If the installer throws Architecture Error. You might need to replace \<Architecture: all> with \<Architecture: amd64> as per system.**
+
+
+
+## References
+[Ubuntu Docs](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles)
+
+[cx_freeze | Docs](https://cx-freeze.readthedocs.io/en/latest/)
+
+[cx_freeze | GitHub](https://github.com/marcelotduarte/cx_Freeze)
+
+[cx_freeze | distutils setup script](https://cx-freeze.readthedocs.io/en/latest/distutils.html)
+
+[Youtube | How to Create An .exe And Installer For Python Application using cx_Freeze Module in HINDI | Urdu](https://youtu.be/inuzQfxTOkg)
