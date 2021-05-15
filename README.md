@@ -80,9 +80,35 @@ setup(
         "build_exe": build_exe_options,
     },
     executables=[
-        Executable("main.py",
-                   icon=r"<path\to\icon\file\icon.ico>",  # Must be .ico only,
-                   )
+        Executable("main.py")
     ]
 )
 ```
+
+## Create a Portable Application
+
+## Build the code
+```bash
+python setup.py build
+```
+
+
+### Cannot find patchelf ?
+It might give an error such as
+
+> **ValueError: Cannot find required utility `patchelf` in PATH**
+
+```bash
+sudo apt install patchelf
+```
+and again run `python setup.py build`
+
+### If everything goes well
+
+It will take a while and after the process is completed you will see a folder named build in your directory where you will have a folder named **exe.linux-\<architecture>-\<python-verion>**
+
+Open that folder and you will find **main**
+
+Now, you can share this build folder with anyone and they can use this script when they will execute **main**
+
+To execute main open terminal and type `./main`
