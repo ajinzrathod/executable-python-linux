@@ -261,6 +261,25 @@ ls
 ```
 > exe.linux-x86_64-3.8  exe.linux-x86_64-3.8.deb
 
+## Final Tree
+
+If you are confused how your tree might look, here is a glance.
+.
+├── exe.linux-x86_64-3.8
+│   ├── DEBIAN
+│   │   ├── control
+│   │   └── preinst
+│   └── usr
+│       ├── bin
+│       │   ├── lib (tree to lib files is excluded)
+│       │   └── main
+│       └── share
+│           ├── applications
+│           │   └── ghanshyam.desktop
+│           └── icons
+│               └── icon.png
+├── exe.linux-x86_64-3.8.deb
+
 
 ## Install the .deb file
 ```bash
