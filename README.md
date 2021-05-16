@@ -189,8 +189,10 @@ cd ../usr/
 ## Create `bin` folder and move all files inside it
 ```bash
 mkdir bin/
-mv * bin/
+mkdir ghanshyam
+mv * bin/ghanshyam/
 ```
+Replace \<ghanshyam> with appname
 
 
 ## Create `share` folder and go inside it
@@ -202,19 +204,22 @@ cd share/
 ## Create *icons* directory and place the application icon
 ```bash
 mkdir icons
-cd icons
+mkdir ghanshyam
+cd icons/ghanshyam/
 ```
+Replace \<ghanshyam> with appname
 (Paste the icon file in this directory)
 
 > PNG format is also supported. .ico file is Not mandatory.
 
 ## Create a `.desktop` file inside `applications` directory
 ```
-cd ..
+cd ../..
 mkdir applications
 cd applications
 vi ghanshyam.desktop
 ```
+(No need to create ghanshyam folder here, every app name is unique)
 
 Paste the following code
 ```
@@ -222,16 +227,16 @@ Paste the following code
 Version=1.0
 Name=ghanshyam
 Comment=Comment in ghanshyam.desktop file
-Exec=/usr/bin/main
-Icon=/usr/share/icons/icon.png
+Exec=/usr/bin/ghanshyam/main
+Icon=/usr/share/ghanshyam/icons/icon.png
 Terminal=false
 Type=Application
+StartupNotify=true
 Categories=Utility;Application;
-
 ```
-> Replace `Exec=/usr/bin/main` with your **main application file**
+> Replace `Exec=/usr/bin/ghanshyam/main` with your **main application file**
 
-> Replace `Icon=/usr/share/icons/icon.png` with your **icon directory path**
+> Replace `Icon=/usr/share/ghanshyam/icons/icon.png` with your **icon directory path**
 
 > Turn `Terminal=true` if you want to display terminal while your application is running.
 
