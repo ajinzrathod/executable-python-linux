@@ -158,6 +158,7 @@ Priority: optional
 Depends: less, parted, rsync
 Maintainer: Ghanshyam Maharaj
 Description: Harikrushna Maharaj, Jai Swaminarayan.
+Keywords=ghanshyam;swaminarayan;
 ```
 
 ## Create preinst File
