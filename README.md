@@ -189,10 +189,10 @@ cd ../usr/
 ## Create `bin` folder and move all files inside it
 ```bash
 mkdir bin/
-mkdir ghanshyam
+mkdir bin/ghanshyam
 mv * bin/ghanshyam/
 ```
-Replace \<ghanshyam> with appname
+Replace \<ghanshyam> with appname. Write \<appname> in smallcase. Coz all apps in **bin** folder are lowercase.
 
 
 ## Create `share` folder and go inside it
