@@ -157,7 +157,6 @@ Essential: no
 Priority: optional
 Depends: less, parted, rsync
 Maintainer: Ghanshyam Maharaj
-Architecture: amd64
 Description: Harikrushna Maharaj, Jai Swaminarayan.
 ```
 
@@ -228,7 +227,7 @@ Version=1.0
 Name=ghanshyam
 Comment=Comment in ghanshyam.desktop file
 Exec=/usr/bin/ghanshyam/main
-Icon=/usr/share/ghanshyam/icons/icon.png
+Icon=/usr/share/icons/ghanshyam/icon.png
 Terminal=false
 Type=Application
 StartupNotify=true
