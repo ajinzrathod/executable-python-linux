@@ -204,7 +204,7 @@ cd share/
 ## Create *icons* directory and place the application icon
 ```bash
 mkdir icons
-mkdir ghanshyam
+mkdir icons/ghanshyam
 cd icons/ghanshyam/
 ```
 Replace \<ghanshyam> with appname
